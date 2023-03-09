@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+
+namespace Logic07
+{
+    internal class Program
+    {
+        static readonly List<User> listUsers = new List<User>();
+        static void Main(string[] args)
+        {
+            dateTime();
+            //bool ulangi = true;
+            //while (ulangi)
+            //{
+            //    insertUser();
+            //}
+            
+            ////listUser();
+            
+            Console.ReadKey();
+        }
+        static void dateTime()
+        {
+            DateTime dt1 = new DateTime(); // 01/01/0001 00:00:00
+            Console.WriteLine(dt1);
+
+            DateTime dt2 = DateTime.Now; //waktu sekarang
+            Console.WriteLine(dt2);
+
+            DateTime d3 = DateTime.Now.Date; //tanggal sekarang tanpa time
+            Console.WriteLine(d3);
+
+            DateTime dt4 = DateTime.UtcNow;
+            Console.WriteLine(dt4);
+
+            DateTime dt5 = new DateTime(2023, 03, 09);
+            Console.WriteLine(dt5);
+
+            DateTime dt6 = new DateTime(2023, 3, 9, 11, 45, 00);
+            Console.WriteLine(dt6);
+        }
+        static void insertUser()
+        {
+            Console.WriteLine("---Insert User---");
+            Console.Write("Masukkan Nama\t: ");
+            string nama = Console.ReadLine();
+            Console.Write("Masukkan Umur\t: ");
+            int umur = int.Parse(Console.ReadLine());
+            Console.Write("Masukkan Alamat\t: ");
+            string alamat = Console.ReadLine();
+
+            List<User> listUser = new List<User>();
+
+            User user = new User();
+            user.Nama = nama;
+            user.Umur = umur;
+            user.Alamat = alamat;
+
+            listUsers.Add(user);
+
+            for (int i = 0; i < listUsers.Count; i++)
+                Console.WriteLine($"Nama : {listUsers[i].Nama}\tUmur :{listUsers[i].Umur}\tAlamat :{listUsers[i].Alamat}");
+        }
+        static void listUser()
+        {
+            List<User> listUser = new List<User>()
+            {
+                new User(){Nama = "Firdha", Umur = 24, Alamat = "Tangsel"},
+                new User(){Nama = "Isni", Umur = 22, Alamat = "Cimahi"},
+                new User(){Nama = "Asti", Umur = 23, Alamat = "Garut"},
+                new User(){Nama = "Muafa", Umur = 22, Alamat = "Bogor"},
+                new User(){Nama = "Toni", Umur = 24, Alamat = "Garut"}
+            };
+            for (int i = 0; i < listUser.Count; i++)
+                Console.WriteLine($"Nama : {listUser[i].Nama}\tUmur :{listUser[i].Umur}\tAlamat :{listUser[i].Alamat}");
+                
+        }
+    }
+}
